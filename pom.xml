@@ -31,14 +31,6 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- 微信框架 参考：https://github.com/Wechat-Group/weixin-java-tools -->
@@ -49,28 +41,9 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <!--邮件模块依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
         <dependency>
@@ -107,17 +80,7 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- mybatis-plus begin -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.4.1</version>
-        </dependency>
+
         <!-- swagger start -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -160,11 +123,6 @@
             <artifactId>hutool-all</artifactId>
             <version>5.3.9</version>
         </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.7.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.bouncycastle</groupId>
@@ -185,14 +143,6 @@
         </dependency>
         <!-- swagger end -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
@@ -203,56 +153,12 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-geojson</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-geometry</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.vividsolutions</groupId>
-            <artifactId>jts</artifactId>
-            <version>1.13</version>
-        </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-epsg-hsql</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-jts-wrapper</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.geotools/gt-main -->
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-main</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-opengis</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
         <!-- 引入json处理包 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-referencing</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-
-
 
     </dependencies>
 
@@ -376,20 +282,4 @@
         </pluginManagement>
         <defaultGoal>compile</defaultGoal>
     </build>
-    <repositories>
-    <repository>
-        <id>osgeo</id>
-        <name>OSGeo Release Repository</name>
-        <url>https://repo.osgeo.org/repository/release/</url>
-        <snapshots><enabled>false</enabled></snapshots>
-        <releases><enabled>true</enabled></releases>
-    </repository>
-    <repository>
-        <id>osgeo-snapshot</id>
-        <name>OSGeo Snapshot Repository</name>
-        <url>https://repo.osgeo.org/repository/snapshot/</url>
-        <snapshots><enabled>true</enabled></snapshots>
-        <releases><enabled>false</enabled></releases>
-    </repository>
-    </repositories>
 </project>

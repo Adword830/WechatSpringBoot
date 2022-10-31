@@ -11,7 +11,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @author pengju.zhang
  * @date 2022-10-24 11:05
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,DruidDataSourceAutoConfigure.class})
 public class Application  extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
