@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.percent.modules.dao.MuckCarTrackMapper">
+
+    <resultMap id="BaseResultMap" type="cn.percent.modules.entity.MuckCarTrack">
+            <result property="carno" column="carno" jdbcType="VARCHAR"/>
+            <result property="lon" column="lon" jdbcType="VARCHAR"/>
+            <result property="lat" column="lat" jdbcType="VARCHAR"/>
+            <result property="speed" column="speed" jdbcType="VARCHAR"/>
+            <result property="dir" column="dir" jdbcType="VARCHAR"/>
+            <result property="time" column="time" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="valid" column="valid" jdbcType="VARCHAR"/>
+            <result property="addr" column="addr" jdbcType="VARCHAR"/>
+            <result property="dis" column="dis" jdbcType="VARCHAR"/>
+            <result property="stopinterval" column="stopInterval" jdbcType="VARCHAR"/>
+            <result property="milleageinterval" column="milleageInterval" jdbcType="VARCHAR"/>
+            <result property="oil" column="oil" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        carno,lon,lat,
+        speed,dir,time,
+        status,valid,addr,
+        dis,stopInterval,milleageInterval,
+        oil,create_time
+    </sql>
+
+    <select id="getList" resultType="cn.percent.modules.entity.MuckCarTrack">
+        select * from muck_car_track where carno=#{carno} and time like #{time}
+    </select>
+
+
+</mapper>

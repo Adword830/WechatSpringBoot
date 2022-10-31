@@ -1,0 +1,71 @@
+
+wechat:
+  appid: wx6147ae9b7dd5541f
+  appsecret: e087cf6501d841f53b75076e6d6f928e
+  token:
+    url: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${wechat.appid}&secret=${wechat.appsecret}
+  send:
+    message: https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=
+    templateId: mXeot71tSnVPcl96FQAYFcEbe1V07uFcYQZ4xYib8tc
+    toUser: opc9-6dau3sPq0cI9YKRbwci-eYM # opc9-6dau3sPq0cI9YKRbwci-eYM opc9-6a01s7z46uYoh8VP1RV-MBw
+  create:
+    menu: https://api.weixin.qq.com/cgi-bin/menu/create?access_token=
+  upload:
+    file: https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=
+  get:
+    mediaList: https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=
+
+  access:
+    token: 6dau3sPq0cI9YKRbwci
+  imge: wNFKAvg_badI-zsrsDgpQKhYaYoi-EHElZFuAv-DRO4u3N9lCb3J1ted7fPo105t
+  video: wNFKAvg_badI-zsrsDgpQP_OwziDXgdbwS_EzObC4GMG53l1sjzVC_3Xxdv9Qc-y
+
+hf:
+  location: 123.41,41.82
+  weather:
+    url: https://devapi.qweather.com/v7/weather/now?location=${hf.location}&key=${hf.key}
+  key: 1b2ea129968d4573a566ecb8874a2662
+
+holiday:
+  url: http://timor.tech/api/holiday/year/
+
+
+mysql:
+  datasource: 10.128.43.253:3306
+  db-name: Interface
+  username: bfd
+  password: 1qaz2wsx!
+
+spring:
+  # MySQL 配置
+  datasource:
+    url: jdbc:mysql://${mysql.datasource}/${mysql.db-name}?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: ${mysql.username}
+    password: ${mysql.password}
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    initial-size: 5
+    max-active: 10
+    max-pool-prepared-statement-per-connection-size: 20
+    max-wait: 60000
+    min-evictable-idle-time-millis: 300000
+    min-idle: 5
+    pool-prepared-statements: true
+    test-on-borrow: false
+    test-on-return: false
+    test-while-idle: true
+    time-between-eviction-runs-millis: 60000
+    validation-query: SELECT 1 FROM DUAL
+
+
+#在yml文件中写入当前的配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  config-location:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 可以打印出其中sql语句的日志
+  global-config:
+    db-config:
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
