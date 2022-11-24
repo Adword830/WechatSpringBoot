@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="120 seconds">
+    <conversionRule conversionWord="nanos" converterClass="cn.percent.common.logback.NanoConverter"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/><!--引用默认内容-->
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/><!--控制台-->
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/application.log}"/>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>[%level][%nanos] %date{yyyy-MM-dd HH:mm:ss.SSS} %logger{96}:%line - %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <!--${catalina.base} linux 指的是tomcat目录， window 是idea工作空间-->
+            <!--${LOG_FILE} linux 指的是tomcat/temp目录， window 是C:\Users\BFD-385\AppData\Local\Temp-->
+            <fileNamePattern>${catalina.base}/logs/web-server-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>128MB</maxFileSize>
+            <maxHistory>14</maxHistory>
+            <totalSizeCap>6GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <springProperty scope="context" name="rootLevel" source="log.level.root" defaultValue="debug"/>
+
+    <!-- 日志级别排序为： TRACE < DEBUG < INFO < WARN < ERROR -->
+<!--    <root level="${rootLevel}">-->
+    <root level="debug">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- 日志级别 -->
+    <logger name="org.springframework.web" level="info">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.springframework.boot" level="info">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+</configuration>

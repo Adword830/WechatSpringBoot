@@ -28,3 +28,8 @@ hf:
 
 holiday:
   url: http://timor.tech/api/holiday/year/
+
+
+#配置日志
+logging:
+  config: classpath:logback-spring.xml
