@@ -1,13 +1,13 @@
 
 wechat:
-  appid: wx6147ae9b7dd5541f
-  appsecret: e087cf6501d841f53b75076e6d6f928e
+  appid: wx574d9b296a054784
+  appsecret: 96365105c2d3a12290431b862083364a
   token:
     url: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${wechat.appid}&secret=${wechat.appsecret}
   send:
     message: https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=
-    templateId: mXeot71tSnVPcl96FQAYFcEbe1V07uFcYQZ4xYib8tc
-    toUser: opc9-6dau3sPq0cI9YKRbwci-eYM # opc9-6dau3sPq0cI9YKRbwci-eYM opc9-6a01s7z46uYoh8VP1RV-MBw
+    templateId: YPtS4XTIBS7Fsd1jap8Uh5G_fV5LfOY3Ty5h5yF6DR8
+    toUser: ooQLO6VnYwG0pfHM6InHyr1VjgdM # ooQLO6VnYwG0pfHM6InHyr1VjgdM ooQLO6S1celQr4VW3ekO24SHKmeo
   create:
     menu: https://api.weixin.qq.com/cgi-bin/menu/create?access_token=
   upload:
